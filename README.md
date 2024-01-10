@@ -2,35 +2,35 @@
 
 #### Video Demo: https://youtu.be/amSWGEbSank
 
-#### Description: A program which allows users to get information about UK constituencies and their Members of Parliament
+#### Description: A program which allows the user to get information about UK constituencies and Members of Parliament (MPs)
 
 #### Background:
 
 The UK government provides a number of APIs relating to its constituencies (geographical areas which are represented in parliament), Members of Parliament (the elected representatives of a constituency in the House of Commons) and Lords (party-sponsored permanent members of the House of Lords).
 
-The APIs are available as part of [the UK Parliament Developer Hub](https://members-api.parliament.uk/index.html).
+The APIs are available as part of the [UK Parliament Developer Hub](https://members-api.parliament.uk/index.html).
 
-The program uses the following APIs:
+This program uses the following APIs:
 
 - https://members-api.parliament.uk/api/Location/Constituency/Search
 - https://members-api.parliament.uk/api/Members/{mp_id}
 
 #### Aim:
 
-To create a program which allows users to search for a constituency by name and get information about that consituency:
+To create a program which allows the user to search for a constituency by name and get the following information about that consituency:
 
 - ID number
 - Current Member of Parliament (MP)
 - The polical party which currently controls (holds the seat of) the constituency
 
-The program should then, if requested, provide information about the selected constituency's MP:
+The program should then, if requested, provide the following information about the selected constituency's MP:
 
 - MP ID number
 - A list of the MP's focuses (policy areas that they are interested in), if any
 
 #### Design choices:
 
-I was unsure of the best approach at first, but eventually decided on Object Oriented Programming based on a few factors:
+The program uses Object Oriented Programming (OOP), due to:
 
 - Common attributes:
 
