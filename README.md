@@ -1,6 +1,6 @@
 # UK Constituency and MP Information Finder
 
-#### Video Demo: https://youtu.be/amSWGEbSank
+#### Project for CS50 Introduction to Programming with Python
 
 #### Description: A program which allows the user to get information about UK constituencies and Members of Parliament (MPs)
 
