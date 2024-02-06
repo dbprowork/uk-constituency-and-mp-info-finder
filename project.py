@@ -4,9 +4,9 @@ import sys
 
 
 class Constituency:
-    """Get, store and prepare constituency information."""
+    # Get, store and prepare constituency information.
     def __init__(self, search):
-        """Instantiate and get API based on user input."""
+        # Instantiate and get API based on user input.
         self.search = search
         self.rsp = requests.get(f"https://members-api.parliament.uk/api/Location/Constituency/Search?searchText={search}&skip=0&take=20")
         self.dict = self.rsp.json()
@@ -16,7 +16,7 @@ class Constituency:
 
 
     def c_confirm(self):
-        """Confirm search."""
+        # Confirm search.
         conf = input(f"You have selected {self.options[0]}. Is this correct (Y/N)? ").lower()
         if conf == "y":
             self.ind = 0
@@ -25,7 +25,7 @@ class Constituency:
 
 
     def c_refine(self):
-        """Refine search."""
+        # Refine search.
         print(f"Did you mean:")
         for i in range(len(self.options)):
             print(f"{i+1} {self.options[i]}")
@@ -38,7 +38,7 @@ class Constituency:
 
 
     def c_prep(self):
-        """Prepare data for output."""
+        # Prepare data for output.
         self.name = self.dict['items'][self.ind]['value']['name']
         self.id = self.dict['items'][self.ind]['value']['id']
         self.mp = self.dict['items'][self.ind]['value']['currentRepresentation']['member']['value']['nameDisplayAs']
@@ -47,7 +47,7 @@ class Constituency:
 
 
 class MP:
-    """Get, store and present MP information."""
+    # Get, store and present MP information.
     def __init__(self, mp_name, mp_id):
         """Instantiate and get API using info from Constituency class (MP name and MP ID)."""
         self.mp_name = mp_name
@@ -60,7 +60,7 @@ class MP:
 
 
     def m_prep(self):
-        """Prepare data for output."""
+        # Prepare data for output.
         self.mp_contact = self.contact_dict['value'][0]['email']
         self.ler = self.ler_dict['value']['result']
         self.focus = [self.focus_dict['value'][i]['focus'] for i in range(len(self.focus_dict['value']))]
@@ -86,7 +86,7 @@ def c_input_check(constituency):
 
 
 def c_out(constituency, choice):
-    """Present data to user."""
+    # Present data to user.
     if not choice.isdigit():
         return "Choice must be a number."
     elif int(choice) < 1 or int(choice) > 3:
@@ -101,7 +101,7 @@ def c_out(constituency, choice):
 
 
 def m_out(mp, choice):
-    """Present data to user."""
+    # Present data to user.
     if not choice.isdigit():
         return "Choice must be a number."
     elif int(choice) < 1 or int(choice) > 3:
